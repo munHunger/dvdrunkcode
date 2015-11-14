@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fylleprogrammering</title>
+
+		<link rel="stylesheet" type="text/css" href="generalStyle.css">
+    <link rel="stylesheet" type="text/css" href="homePage.css">
+
+
+	<script>
+		function httpGet(theUrl) {
+			    var xmlHttp = new XMLHttpRequest();
+			    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+			    xmlHttp.send( null );
+			    return xmlHttp.responseText;
+		}
+	</script>
+  </head>
+
+  <body>
+		<div class="middle-containment"> 
+			<div class=ul-containment id="four"> 
+				<ul id="menu">
+					<li><a id="left" onclick="editTab('problemList')" >Problems</a></li>
+					<li><a id="middle">Users</a></li>	
+					<li><a id="middle" onclick="editTab('uploadForm')">Upload</a></li>				
+					<li><a id="right" href="/dvDrunkCode/inputalcohol.html">Förra året</a></li>
+				</ul>  
+			</div> <!-- end ul-containment -->
+			<div id="home-ev" class="everything-containment"> 
+
+			</div> <!-- end everything-containment -->
+		</div> <!-- end middle-containment -->
+  </body>
+
+</html>
+

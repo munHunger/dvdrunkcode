@@ -1,0 +1,107 @@
+#problemList
+{
+    position: relative;
+    width: 665px;
+    height: 90%;
+    margin: 15px;
+    top: 15px;
+    overflow: auto;
+}
+
+
+.problem
+{
+	position:relative;
+	height:30px;
+	background-color: rgba(225, 225, 225, 0.4);
+}
+
+.problem #title
+{
+	margin: 5px;
+	float: left;
+}
+
+.problem #rating
+{
+	float: right;
+	margin: 0px;
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	background-color: rgba(225, 225, 225, 0.3);
+}
+
+.rollout
+{
+	position:relative;
+	height:0px;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.rollout #description
+{
+	margin: 10px;
+	width: 70%;
+	float: left;
+}
+.rollout #input
+{
+	margin: 10px;
+	width: 20%;
+	float: right;
+}
+
+h3
+{
+	text-align: center;
+}
+
+.rollout input[type="text"],
+.rollout textarea
+ {
+    font-size: 14px;
+    width: 100%;
+    padding: 3px;
+    border: none;
+    border-bottom: solid 2px #BBB;
+    background-color: #EEE;
+    transition: border 0.3s;
+}
+.rollout input[type="text"]:focus,
+.rollout input[type="text"].focus,
+.rollout textarea:focus,
+.rollout textarea.focus
+{
+    border: none;
+    outline: none;
+    border-bottom: solid 2px #666;
+}
+
+.rollout input[type="submit"],
+.rollout input[type="button"],
+{
+    -webkit-box-shadow:#BBB 0 1px 0 0;
+    -moz-box-shadow:#BBB 0 1px 0 0;
+    box-shadow:#BBB 0 1px 0 0;
+    background-color:#EEE;
+    border-radius:0;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border:1px solid #999;
+    color:#666;
+    font-size:11px;
+    font-weight:700;
+    padding:2px 6px;
+    transition: 0.3s;
+}
+.rollout input[type="submit"].hover,
+.rollout input[type="submit"]:hover, 
+.rollout input[type="button"].hover,
+.rollout input[type="button"]:hover
+{
+    -webkit-box-shadow:#666 0 1px 0 0;
+    -moz-box-shadow:#666 0 1px 0 0;
+    box-shadow:#666 0 1px 0 0;
+}

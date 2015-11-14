@@ -1,0 +1,282 @@
+
+
+
+
+/*------PIE STUFF------*/
+.pie-containment {
+	position: relative;
+	float:left;
+	width: 220px; height: 270px;
+	padding: 0px;
+}
+
+.pie-annot-cont {
+	position: relative;
+	top: 10px;
+	width: 220px;
+	display: block;
+}
+
+.pie-color-box-red {
+	margin: 3px;
+	width: 10px; height: 10px;
+	background-color: #DC143C;
+	display:inline-block;
+	float: left;
+}
+
+.pie-color-box-yellow {
+	margin: 3px;
+	width: 10px; height: 10px;
+	background-color: #EEE8AA;
+	display:inline-block;
+	float: left;
+}
+
+.pie-annotations {
+	padding-left: 10px;
+	float: left;
+	line-height: 15px;
+}
+
+.pie {
+	background-color: #FFF;
+	width: 200px; height: 200px;
+	border-radius: 50%;
+	background: #EEE8AA;
+	background-image:
+		linear-gradient(to right, transparent 50%, #DC143C 0);
+
+}
+
+@keyframes spin {
+  to { transform: rotate(.5turn); }
+}
+
+@keyframes bg {
+  50% { background: #DC143C; }
+}
+
+.pie::before {
+	content: '';
+	display: block;
+	margin-left: 50%;
+	height: 100%;
+	border-radius: 0 100% 100% 0 / 50%;
+	background-color: inherit;
+	transform-origin: left;
+	animation: spin 50s linear infinite,
+						 bg 100s step-end infinite;
+	animation-play-state: paused;
+	animation-delay: inherit;
+}
+/*------END PIE STUFF------*/
+
+
+
+
+/*------PROGRESS BAR STUFF----------*/
+.prog-bar-containment {
+	position: relative;
+	float: left;
+	margin: 10px 30px;
+	width: 400px;
+}
+
+.prog-bar-and-text {
+	position: relative;
+	float: left;
+	height: 70px; width: 400px;
+}
+
+.prog-bar {
+	position: relative;
+	float: left;
+	height: 30px; width: 400px; 
+	background-color: rgba(255,255,255,0.6);
+	margin: 2px;
+	border-radius: 5px;
+}
+
+.prog-bar-lower {
+	position:absolute;
+	top: 15px;
+	height:15px; width:400px;
+	background-color: white;
+	border-radius: 0 0 5px 5px;
+}
+
+.progress {
+	position:absolute;
+	height: 30px; width: 0%; 
+	border-radius: 5px 5px 5px 5px;
+	transition: width 1s ease;
+}
+
+.progress#red {
+	background-color: rgba(220,20,60,0.6);
+}
+
+.progress#red-lower {
+	background-color: rgba(220,20,60,1);
+	top: 15px;	
+	height: 15px;	
+	border-radius: 0 0 5px 5px;
+}
+
+.progress#yellow {
+	background-color: rgba(238,232,170,0.6);	
+}
+
+.progress#yellow-lower {
+	background-color: rgba(238,232,170,1);
+	top: 15px;	
+	height: 15px;	
+	border-radius: 0 0 5px 5px;
+}
+
+.progress#grey {
+	background-color: rgba(47, 79, 79,0.6);	
+}
+
+.progress#grey-lower {
+	background-color: rgba(47, 79, 79,1);
+	top: 15px;	
+	height: 15px;	
+	border-radius: 0 0 5px 5px;
+}
+
+.upper-prog-bar {
+	position: absolute;
+	color: rgba(255, 255, 255a, 0);
+	width: 100%; height: 100%;
+	border-radius: 5px;
+	texSt-align: center;
+ 	font-family: "Lucida Console", Monaco, monospace;
+	line-height: 30px;
+	font-size: 12px;
+}
+/*------END PROGRESS BAR STUFF----------*/
+
+
+/*-----------TIMELINE-----------*/
+#timeline-containment {
+  position: relative;
+  margin: auto;
+	width: 800px;/*700px; height: 100px;*/
+	padding: 30px 0;
+	margin-top: 5px;
+	background-color: rgba(0,0,0,0.1);
+}
+
+#timeline {
+	position: absolute;
+	width: 3px;
+	left: 399px;
+	background-color: rgba(255,255,255,1);
+}
+
+.timeline-cross {
+	position: absolute;
+	height: 3px; width: 21px;
+	left: -9px;
+	background-color: rgba(255,255,255,1);
+	border-radius: 1.5px;
+}
+
+/*.timeline-pic {
+	position: absolute;
+	height: 30px; width: 30px;
+	border-style: solid;
+  border-width: 3px;
+	background-color: rgba(225,225,225,0.9);
+}
+
+.timeline-pic#drink {
+	left: 23px;
+	background-image: url("images/whisky30.png");
+}
+
+.timeline-pic#prog {
+	right: 23px;
+	background-image: url("images/programming.png");
+}*/
+
+text1.timeline-time {
+	position: absolute;
+	font-size: 12px;
+	line-height: 12px;
+	color: rgba(255,255,255,0.9);
+	top: -3px;
+}
+
+text1.timeline-time#drink {
+	right: 25px;
+	text-align: right;	
+}
+
+text1.timeline-time#prog {
+	left: 25px;
+	text-align: left;	
+}
+
+.timeline-score-box {
+	position:absolute;
+	width: 225px;
+	visibility: hidden;
+	text-align: left;
+}
+
+.timeline-score-box#drink {
+	right: 80px;
+}
+
+.timeline-score-box#prog {
+	left: 80px;
+}
+
+.heading-box {
+	position:absolute;
+	font-size: 15px;
+	line-height: 15px;
+	padding: 20px;
+	width: 130px;
+	background-color: rgba(0,0,0,0.4);	
+}
+
+.points-box {
+	position: absolute;
+	right: 0;
+	font-size: 15px;
+	line-height: 15px;
+	padding: 20px;
+	width: 15px;
+	background-color: rgba(225,225,225,0.1);
+}
+
+.desc-box {
+	position: absolute;
+	top: 60px;
+	width: 185px;
+	padding: 20px;
+	background-color: rgba(0,0,0,0.2);
+}
+
+text1.timeline-time:hover + .timeline-score-box {
+	visibility: visible;
+}
+
+
+/*-----------END TIMELINE-----------*/
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+<div id="problemList">	</div>
+<script type="text/javascript">
+	var doc = document.getElementById("problemList");
+	doc.innerHTML = httpGet("problem.php");
+	function updateRating(rating, id)
+	{
+		httpGet("updateRating.php?ID=" + id + "&rating=" + rating);
+		updateProblem(id);
+	}
+
+	function updateProblem(id)
+	{
+		document.getElementById(id).innerHTML = httpGet("problem.php?ID=" + id);
+	}
+
+	function toggleFold(id)
+	{
+		var doc = document.getElementById(id).getElementsByClassName("rollout")[0];
+		var currentHeight = doc.clientHeight;
+		if(currentHeight == 0)
+			unroll(0.0, id);
+		else
+			fold(1.0, id);
+	}
+
+	function unroll (progress, id) 
+	{
+		var doc = document.getElementById(id).getElementsByClassName("rollout")[0];
+		doc.style.height = "auto";
+		var height = doc.clientHeight;
+		doc.style.height = (progress*height) + "px";
+		if(progress < 1.0)
+			setTimeout(function(){unroll(progress+0.05, id);}, 25);
+	}
+
+	function fold(progress, id)
+	{
+		var doc = document.getElementById(id).getElementsByClassName("rollout")[0];
+		doc.style.height = "auto";
+		var height = doc.clientHeight;
+		doc.style.height = (progress*height) + "px";
+		if(progress > 0.0)
+			setTimeout(function(){fold(progress-0.05, id);}, 25);
+		else
+			doc.style.height = "0px";
+	}
+</script>

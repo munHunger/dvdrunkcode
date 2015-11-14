@@ -1,0 +1,131 @@
+.counter
+{
+	font-family: 'Droid Sans Mono';
+}
+
+.everything-containment {
+	top: 100px;
+}
+
+
+#countdown
+{
+	position:absolute;
+	left: 400px; top: 100px;
+	width:350px;
+	height: 300px;
+}
+
+.counter #title
+{
+	font-size:40px; 
+	text-align:center;
+	float: center;
+}
+
+.counter #day
+{
+	position:relative; 
+	font-size:175px;
+	width: 200px;
+	float: left;
+}
+
+.counter #hour
+{
+	position: relative;
+	float: right;
+	font-size:80px;
+	width: 150px;
+	text-align: center;
+	margin-top: 25px;
+}
+
+.counter #minute
+{
+	position: relative;
+	float: right;
+	width: 150px;
+	text-align: center;
+	font-size:45px;
+}
+
+.register #main
+{
+	position: relative;
+	margin: auto:
+	width: 300px;	
+}
+
+.login
+{
+	background-color: #DDD;
+	position: relative;
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    height: 350px;
+    width: 750px;
+    margin: auto;
+    top: 50px;
+    border-radius: 15px;
+}
+
+.login input[type="text"],
+.login input[type="password"],
+.register input[type="text"],
+.register input[type="password"]
+ {
+	padding: 3px;
+	border: none;
+	border-bottom: solid 2px #BBB;
+	background-color: #EEE;
+	transition: border 0.3s;
+}
+.login input[type="text"]:focus,
+.login input[type="text"].focus,
+.login input[type="password"]:focus,
+.login input[type="password"].focus, 
+.register input[type="text"]:focus,
+.register input[type="text"].focus,
+.register input[type="password"]:focus,
+.register input[type="password"].focus 
+{
+	border: none;
+	outline: none;
+	border-bottom: solid 2px #666;
+}
+
+.login input[type="submit"],
+.login input[type="button"],
+.register input[type="submit"],
+.register input[type="button"]
+{
+	-webkit-box-shadow:#BBB 0 1px 0 0;
+	-moz-box-shadow:#BBB 0 1px 0 0;
+	box-shadow:#BBB 0 1px 0 0;
+	background-color:#EEE;
+	border-radius:0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border:1px solid #999;
+	color:#666;
+	font-size:11px;
+	font-weight:700;
+	padding:2px 6px;
+	transition: 0.3s;
+}
+.login input[type="submit"].hover,
+.login input[type="submit"]:hover, 
+.login input[type="button"].hover,
+.login input[type="button"]:hover, 
+.register input[type="submit"].hover,
+.register input[type="submit"]:hover, 
+.register input[type="button"].hover,
+.register input[type="button"]:hover 
+{
+	-webkit-box-shadow:#666 0 1px 0 0;
+	-moz-box-shadow:#666 0 1px 0 0;
+	box-shadow:#666 0 1px 0 0;
+}
+

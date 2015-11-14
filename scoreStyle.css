@@ -1,0 +1,108 @@
+body {
+	background-size: 1400px 900px;
+}
+
+
+.info-box-containment {
+    position: relative;
+    margin: auto;
+		margin-top: 50px;
+    width: 800px;
+    height: 600px;
+    background-color: black;
+    /*border-radius: 100px;*/
+    opacity: 0.8;
+}
+
+.score-board {
+    position: absolute;
+    height: 400px;
+		width: 940px;
+    top: 50%;
+		margin: auto;
+    margin-top: -200px;   
+		left: 30px;                    
+}
+
+.leader {
+		position: relative;      
+    float: left;      
+    height: 400px;
+    width: 270px;
+}
+
+.close-by {
+    float: left;
+    height: 130px;
+    width: 100px;
+}
+
+.close-by-containment {
+    position: relative;
+		margin: auto;
+    float: left;
+    height: 400px;
+    width: 100px;
+}
+
+.looser {
+    float:left;
+    height: 80px;
+    width: 80px;
+}
+
+.looser-containment {
+    position: relative;
+    float: left;
+		left: 20px;
+    height: 400px;
+    width: 80px;   
+} 
+
+.looser-containment-containment {
+    position: relative;
+    float: left;
+    height: 400px;
+    width: 410px;
+}
+
+p {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: white;
+    text-align: center;
+    line-height: 0;
+}
+
+p.leader-points {
+    font-size: 210px;
+    font-weight: bold;
+    margin-top: 170px;
+}
+
+p.leader-name {
+    font-size: 30px;
+    margin-top: -100px;
+}
+
+p.close-by-points {
+    font-size: 90px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+p.close-by-name {
+    font-size: 13px;
+    margin-top: -40px;
+}
+
+p.looser-points {
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+p.looser-name {
+    font-size: 10px;
+    margin-top: -25px;
+}
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fylleprogrammering</title>
+
+		<link rel="stylesheet" type="text/css" href="generalStyle.css">
+    <link rel="stylesheet" type="text/css" href="homePage.css">
+
+
+	<script>
+		function changePiePercent() {
+			var userId = 1;
+			var a = httpGet("getInfo.php?getUserPoints=" + userId).split("@");
+			var percent = 100*(parseInt(a[1])/(parseInt(a[0]) + parseInt(a[1])));
+			document.getElementById("outer-pie").innerHTML = "<div class=\"pie\"style=\"animation-delay: -" + percent + "s\"></div>"	
+		}
+		function changeProgPercent(prc) {
+			document.getElementById("red").style.width=prc + "%";
+			document.getElementById("red-lower").style.width=prc + "%";	
+		}
+		function changeDrinkPercent(prc) {
+			document.getElementById("yellow").style.width=prc +"%";
+			document.getElementById("yellow-lower").style.width=prc + "%";	
+		}
+		function changeAllPercent(prc) {
+			document.getElementById("grey").style.width=prc + "%";
+			document.getElementById("grey-lower").style.width=prc + "%";	
+		}
+		function updateProgressBars() {
+			var userId = 1; 
+			var a = httpGet("getInfo.php?getPercentages=" + userId).split("@");
+			changeAllPercent(a[0]);
+			changeProgPercent(a[1]);
+			changeDrinkPercent(a[2]); 
+		}
+
+	  function initiateTimeline() {
+			document.getElementById("timeline").innerHTML= "" +
+			"<div class=\"timeline-cross\" style=\"top:0px;\"> </div> " +
+			"<div id=\"end-cross\" class=\"timeline-cross\" style=\"top:1198px;\"> </div>"
+
+			document.getElementById("timeline-containment").style.height="1200px";
+			document.getElementById("timeline").style.height="1200px";
+			//document.getElementById("home-ev").style.height=300 + 800 + "px";
+		}
+		function addAllToTimeLine() {
+			var userId = 2;
+			var a = httpGet("getInfo.php?getScoreInfo=" + userId).split("@");
+			for (i = 0; i < a.length-1; i = i + 4) {
+				if (a[i+0] === "Alcohol") {
+					addPointToTimeline("drink", a[i+3], a[i+0], a[i+1], a[i+2]);
+				} else {
+					addPointToTimeline("prog", a[i+3], a[i+0], a[i+1], a[i+2]);
+				}
+			}	
+		}
+		function calcClockString (minutes) {
+			var numHours = 18;
+			numHours = numHours + Math.trunc(minutes/60);
+			numMinutes = minutes%60;
+			if (numMinutes < 10) {
+				return (numHours + ":0" + numMinutes);
+			}
+			return (numHours + ":" + numMinutes);
+		}
+
+		//pointType = drink eller prog
+		function addPointToTimeline (pointType, minutes, name, description, points) {
+			//800px is 4 hours. 200px is 1 hour. 
+			var position = Math.round((800/(4*60))*minutes);
+			document.getElementById("timeline").innerHTML="" +
+				document.getElementById("timeline").innerHTML +
+				"<div class=\"timeline-cross\" style=\"top:" + (position - 1) + "px;\">  " +
+					"<text1 class=\"timeline-time\" id=\"" + pointType + "\">" + 
+							calcClockString(minutes) + "</text1>" +
+					"<div class=\"timeline-score-box\" id=\"" + pointType + "\">" + 
+						"<div class=\"heading-box\">" + name + "</div>" +
+						"<div class=\"points-box\">" + points + "</div>" +
+						"<text2 class=\"desc-box\">" + description +	"</text2>" +
+					"</div> <!--end timeline-score-box-->" +
+				"</div> <!--end timeline-cross-->";		
+		}
+
+		function httpGet(theUrl) {
+			    var xmlHttp = new XMLHttpRequest();
+			    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+			    xmlHttp.send( null );
+			    return xmlHttp.responseText;
+		}
+		function runHomePage() {
+			changePiePercent();
+			updateProgressBars();
+			addAllToTimeLine();
+		}
+	</script>
+  </head>
+
+  <body>
+
+		<text1 class=user-name> Anna Nilsson </text1>
+		<div class="middle-containment"> 
+			
+			<div class="ul-containment" id="three"> 
+				<ul id="menu">
+					<li><a id="left" href="/dvDrunkCode/scoreBoard.php">Problem</a></li>
+					<li><a id="middle" href="/dvDrunkCode/scoreBoard.php">Score board</a></li>					
+					<li><a id="right" href="/dvDrunkCode/lastYear.html">Förra året</a></li>
+				</ul>  
+			</div> <!-- end ul-containment -->
+			<div id="home-ev" class="everything-containment"> 
+
+
+				<div class="pie-containment">
+					<div id="outer-pie"></div>
+					<div class="pie-annot-cont">
+						<div class="pie-color-box-red"> </div>
+						<text2 class="pie-annotations"> Programmeringspoäng </text2> 
+					</div> <!-- end pie-annot-cont -->
+					</br>
+					<div class="pie-annot-cont">
+						<div class="pie-color-box-yellow"> </div>
+						<text2 class="pie-annotations"> Alkoholpoäng </text2>
+					</div> <!-- end pie-annot-cont -->			
+				</div> <!-- end pie-containment -->	
+
+			
+				<div class="prog-bar-containment">
+					<div class="prog-bar-and-text"> 
+						<div class="prog-bar">
+							<div class="prog-bar-lower"> </div>
+							<div id="grey" class="progress"></div>
+							<div id="grey-lower" class="progress"></div>
+						</div>  <!-- end prog-bar -->
+						<text2> Procent totala poäng jämfört med ledaren </text2>
+					</div> <!-- end prog-bar-and-text -->
+					<div class="prog-bar-and-text"> 
+						<div class="prog-bar">
+							<div class="prog-bar-lower"> </div>
+							<div id="red" class="progress"></div>
+							<div id="red-lower" class="progress"></div>
+						</div> <!-- end prog-bar -->	
+						<text2> Procent programmeringspoäng jämfört med ledaren </text2>		
+					</div> <!-- end prog-bar-and-text -->
+					<div class="prog-bar-and-text"> 
+						<div class="prog-bar">
+							<div class="prog-bar-lower"> </div>
+							<div id="yellow" class="progress"></div>
+							<div id="yellow-lower" class="progress"></div>
+						</div>  <!-- end prog-bar -->
+						<text2> Procent alkoholpoäng jämfört med ledaren </text2>	
+					</div> <!-- end prog-bar-and-text -->
+				</div> <!-- end prog-bar-containment --> 
+
+				
+
+			</div> <!-- end everything-containment -->
+			<div id="timeline-containment">
+				<div id="timeline">
+
+				</div> <!--end timeline-->
+			</div> <!--end timeline-containment-->
+
+		</div> <!-- end middle-containment -->
+		<script>
+			initiateTimeline();
+			runHomePage()
+
+			setInterval(function(){ runHomePage(); }, 3000);
+
+			//addPointToTimeline ("drink", 15, "Alkohol", "");
+			//addPointToTimeline ("drink", 60, "Alkohol", "");
+			//addPointToTimeline ("prog", 40, "Problem 1:", "Addera massa tal i en lista");
+
+			//alert(httpGet("getInfo.php?getScoreInfo=" + 2));
+
+		</script>
+
+  </body>
+
+</html>
+

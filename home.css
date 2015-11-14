@@ -1,0 +1,107 @@
+/*#home
+{
+    position: relative;
+    margin: auto;
+    background-color: #CCC;
+    width: 750px;
+    height: 350px;
+    border-radius: 15px;
+    top: 50px;
+}*/
+
+/*.navigation
+{
+    position: absolute;
+    top: -55px;
+    left: 15px;
+}*/
+
+/*.navigation #tab
+{
+    position: relative;
+    float: left;
+    margin: 20px;
+    background: -moz-linear-gradient(top, #111 75%, #222222 100%); /* FF3.6+ */
+/*    background: -webkit-gradient(linear, left top, left bottom, color-stop(75%,#111), color-stop(100%,#222222)); /* Chrome,Safari4+ */
+/*    background: -webkit-linear-gradient(top, #111 75%,#222222 100%); /* Chrome10+,Safari5.1+ */
+/*    background: -o-linear-gradient(top, #111 75%,#222222 100%); /* Opera 11.10+ */
+/*    background: -ms-linear-gradient(top, #111 75%,#222222 100%); /* IE10+ */
+/*    background: linear-gradient(to bottom, #111 75%,#222222 100%); /* W3C */
+/*    height: 35px;
+    width: 100px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}*/
+
+/*
+.navigation #tabText:hover
+{
+    background-color: #500;			
+}
+.navigation #tabText
+{
+    position: relative;
+    background-color: #400;
+    width: 110%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #F00;
+    top: 10px;
+    font-weight: bolder;
+}
+*/
+
+.problem #description
+{
+    position: relative;
+    top: 15px;
+    margin: 15px;
+}
+/*
+.problem input[type="text"],
+.problem textarea
+ {
+    font-size: 14px;
+    width: 250px;
+    padding: 3px;
+    border: none;
+    border-bottom: solid 2px #BBB;
+    background-color: #EEE;
+    transition: border 0.3s;
+}*/
+.problem input[type="text"]:focus,
+.problem input[type="text"].focus,
+.problem textarea:focus,
+.problem textarea.focus
+{
+    border: none;
+    outline: none;
+    border-bottom: solid 2px #666;
+}
+
+.problem input[type="submit"],
+.problem input[type="button"],
+{
+    -webkit-box-shadow:#BBB 0 1px 0 0;
+    -moz-box-shadow:#BBB 0 1px 0 0;
+    box-shadow:#BBB 0 1px 0 0;
+    background-color:#EEE;
+    border-radius:0;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border:1px solid #999;
+    color:#666;
+    font-size:11px;
+    font-weight:700;
+    padding:2px 6px;
+    transition: 0.3s;
+}
+.problem input[type="submit"].hover,
+.problem input[type="submit"]:hover, 
+.problem input[type="button"].hover,
+.problem input[type="button"]:hover
+{
+    -webkit-box-shadow:#666 0 1px 0 0;
+    -moz-box-shadow:#666 0 1px 0 0;
+    box-shadow:#666 0 1px 0 0;
+}
